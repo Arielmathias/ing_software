@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Enviar Mensaje</title>
+    <style>
+        .custom-btn {
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            font-size: 1rem;
+        }
+        .user-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 20px auto;
+        }
+        .list-group-item {
+            font-size: 1.2rem;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Columna izquierda -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        ENVIAR MENSAJE
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Quilpue/Villa Alemana</li>
+                        <li class="list-group-item">Viña del mar Alto</li>
+                        <li class="list-group-item">Viña del Mar Centro</li>
+                        <li class="list-group-item">ConCon</li>
+                        <li class="list-group-item">Reñaca</li>
+                        <li class="list-group-item">Empresas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="col-md-6">
+                <div class="card mb-4 text-center">
+                    <img src="img/usuario.png" alt="Usuario" class="user-image">
+                    <p class="text-muted">Hola Usuario!</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Ruta seleccionada</h5>
+                        <div id="selectedRoute" class="p-3 border">
+                            <!-- Aquí se mostrará la selección de la lista -->
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary custom-btn" onclick="confirmSelection()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Script para actualizar la ruta seleccionada y redirigir al archivo enviar_sector.html
+        document.querySelectorAll('.list-group-item').forEach(item => {
+            item.addEventListener('click', event => {
+                document.getElementById('selectedRoute').innerText = event.target.innerText;
+            });
+        });
+
+        function confirmSelection() {
+            // Redirigir a enviar_sector.html
+            window.location.href = 'enviar_sector.html';
+        }
+    </script>
+</body>
+</html>
